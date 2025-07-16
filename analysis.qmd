@@ -2,5 +2,20 @@
 title: "Four Parameters Categorical"
 format: html
 author: "Jishnu Veerapaneni"
+execute: 
+  echo: false
 ---
 
+We are examining the 1992 major party candidates, the nominees of the Democratic and the Republican parties, Bill Clinton and George HW Bush, and Perot was a successful “third party” candidate with a staggering 19% of the vote, and how voters sex might have impacted their presidential vote. The data was collected by the American National Election survey to answer what the difference in voting preference of men and women in the 1992 US Presidential election of the three leading candidates were.
+
+
+
+
+
+
+
+```{r}
+#| message: false
+library(tidyverse) 
+library(primer.data)
+```
