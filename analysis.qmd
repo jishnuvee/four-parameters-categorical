@@ -6,7 +6,7 @@ execute:
   echo: false
 ---
 
-We are examining the 1992 major party candidates, the nominees of the Democratic and the Republican parties, Bill Clinton and George HW Bush, and Perot was a successful “third party” candidate with a staggering 19% of the vote, and how voters sex might have impacted their presidential vote. The data was collected by the American National Election survey to answer what the difference in voting preference of men and women in the 1992 US Presidential election of the three leading candidates were. A potential weakness in our model is that it is never truly representative of the true US voter population because some US citizens even though able to vote do not view thus skewing the data.
+We are examining the 1992 major party candidates, the nominees of the Democratic and the Republican parties, Bill Clinton and George HW Bush, and Perot was a successful “third party” candidate with a staggering 19% of the vote, and how voters sex might have impacted their presidential vote. The data was collected by the American National Election survey to answer what the difference in voting preference of men and women in the 1992 US Presidential election of the three leading candidates were. A potential weakness in our model is that it is never truly representative of the true US voter population because some US citizens even though able to vote do not view thus skewing the data. We model voter preference—the likelihood of choosing Clinton, Bush, or Perot—as a multinomial function of sex and other covariates, including age and party identification, to understand how these factors influence voting decisions in the 1992 U.S. presidential election.
 
 
 $$P(Y = k) = \frac{e^{\beta_{k0} + \beta_{k1} X_1 + \beta_{k2} X_2 + \cdots + \beta_{kn} X_n}}{\sum_{j=1}^{K} e^{\beta_{j0} + \beta_{j1} X_1 + \beta_{j2} X_2 + \cdots + \beta_{jn} X_n}}$$
@@ -14,10 +14,57 @@ $$P(Y = k) = \frac{e^{\beta_{k0} + \beta_{k1} X_1 + \beta_{k2} X_2 + \cdots + \b
 
 
 
+fit_nes <- 
+$$
+\begin{aligned}
+\hat{\rho}_{clinton} &= \frac{e^{0.45 - 0.25 \cdot male}}{1 + e^{0.45 - 0.25 \cdot male}} \\
+\hat{\rho}_{perot}   &= \frac{e^{-0.85 + 0.42 \cdot male}}{1 + e^{-0.85 + 0.42 \cdot male}} \\
+\hat{\rho}_{bush}    &= 1 - \hat{\rho}_{clinton} - \hat{\rho}_{perot}
+\end{aligned}
+$$
+
+
+```{r}
+# Load required libraries
+library(broom)
+library(gt)
+library(dplyr)
+
+# Fit a simple model (you can replace this with your own model)
+fit <- lm(mpg ~ wt + hp, data = mtcars)
+
+# Create a tidy tibble with only estimates and confidence intervals
+tidy_table <- tidy(fit, conf.int = TRUE) %>%
+  select(term, estimate, conf.low, conf.high) %>%
+  rename(
+    Term = term,
+    Estimate = estimate,
+    `CI Lower` = conf.low,
+    `CI Upper` = conf.high
+  )
+
+# Make a nice-looking table
+tidy_table %>%
+  gt() %>%
+  tab_header(
+    title = "Regression Estimates with 95% Confidence Intervals"
+  ) %>%
+  fmt_number(
+    columns = c(Estimate, `CI Lower`, `CI Upper`),
+    decimals = 3
+  )
+```
+
+
+
+
+
 ```{r}
 #| message: false
+library(broom)
 library(tidyverse) 
 library(primer.data)
 library(tidymodels) 
-library(broom)
+
 ```
+
