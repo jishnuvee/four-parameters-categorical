@@ -4,7 +4,7 @@
     "href": "analysis.html",
     "title": "Four Parameters Categorical",
     "section": "",
-    "text": "We are examining the 1992 major party candidates, the nominees of the Democratic and the Republican parties, Bill Clinton and George HW Bush, and Perot was a successful “third party” candidate with a staggering 19% of the vote, and how voters sex might have impacted their presidential vote. The data was collected by the American National Election survey to answer what the difference in voting preference of men and women in the 1992 US Presidential election of the three leading candidates were.\n\n\nWarning: package 'purrr' was built under R version 4.5.1\n\n\nWarning: package 'dplyr' was built under R version 4.5.1"
+    "text": "We are examining the 1992 major party candidates, the nominees of the Democratic and the Republican parties, Bill Clinton and George HW Bush, and Perot was a successful “third party” candidate with a staggering 19% of the vote, and how voters sex might have impacted their presidential vote. The data was collected by the American National Election survey to answer what the difference in voting preference of men and women in the 1992 US Presidential election of the three leading candidates were.\n\\[P(Y = k) = \\frac{e^{\\beta_{k0} + \\beta_{k1} X_1 + \\beta_{k2} X_2 + \\cdots + \\beta_{kn} X_n}}{\\sum_{j=1}^{K} e^{\\beta_{j0} + \\beta_{j1} X_1 + \\beta_{j2} X_2 + \\cdots + \\beta_{jn} X_n}}\\]\n\n\nWarning: package 'purrr' was built under R version 4.5.1\n\n\nWarning: package 'dplyr' was built under R version 4.5.1"
   },
   {
     "objectID": "about.html",
